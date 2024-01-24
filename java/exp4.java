@@ -6,8 +6,8 @@ class Shape{
   double area(double length,double breadth){
     return length*breadth;
   }
-  float area(float height,float base){
-    return (0.5f)*base*height;
+  float area(float base,float height){
+    return 0.5f*base*height;
   }
 }
 class ShapeMain{
