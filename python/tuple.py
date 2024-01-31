@@ -24,7 +24,7 @@ while True:
 		else:
 			del t2
 	elif ch == 3:
-			item = input("Enter item: ")
+			item = int(input("Enter item: "))
 			if item in t1:
 				print(t1.count(item))
 			elif item in t2:
