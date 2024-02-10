@@ -6,7 +6,7 @@ struct node{
 	struct node *link;
 	
 };
-struct node *front,*rear;
+struct node *front;
 
 
 struct node* newnode(int data,struct node *link)
@@ -42,11 +42,10 @@ void enqueue()
 		{
 			temp=temp->link;
 		}
-		rear=newnode(num,NULL);
-		temp->link=rear;
+		temp->link=newnode(num,NULL);
 	}
 	else
-		front=rear=newnode(num,NULL);
+		front=newnode(num,NULL);
 		
 }
 void dequeue()
