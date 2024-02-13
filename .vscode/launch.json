@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "ComplexMain",
+      "request": "launch",
+      "mainClass": "ComplexMain",
+      "projectName": "exps_2eb381d5"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

@@ -41,9 +41,9 @@ class ComplexMain{
     c1.add(c2,c3);
     System.out.print("Complex number 2: ");
     c2.display();
-    System.out.print("cn1 and cn2 sum: ");
+    System.out.print("Complex number 3 <= sum of complex number 1 and 2: ");
     c3.display();
-    System.out.print("new complex no 1: ");
+    System.out.print("Complex number 1 <= sum of complex number 2 and 3: ");
     c1.display();
   }
 }
