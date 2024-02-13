@@ -10,7 +10,7 @@ class Complex{
     imaginary = b;
   }
   Complex add(Complex cn){
-    Complex temp = new Complex(0,0);
+    Complex temp = new Complex();
     temp.real = this.real + cn.real;
     temp.imaginary = this.imaginary + cn.imaginary;
     return temp;
