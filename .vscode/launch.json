@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StudentsMain",
+      "request": "launch",
+      "mainClass": "StudentsMain",
+      "projectName": "exps_2eb381d5"
+    },
+    {
+      "type": "java",
       "name": "ComplexMain",
       "request": "launch",
       "mainClass": "ComplexMain",
