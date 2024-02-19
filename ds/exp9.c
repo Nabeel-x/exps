@@ -84,6 +84,7 @@ void main(){
             printf("Exiting: ");
             break;
         default:
+            printf("Invalid option\n");
             break;
         }
     }while(option != 5);
