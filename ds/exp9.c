@@ -51,7 +51,7 @@ struct node* delete(struct node* root, int value) {
 }
 
 
-void main(){
+int main(){
     struct node *root = NULL,*lar;
     int option, value;
     do{
