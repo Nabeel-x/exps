@@ -1,7 +1,7 @@
 import java.util.Scanner;
 class Rectangle{
-    int length, breadth;
-    Rectangle(int l,int b){
+    double length, breadth;
+    Rectangle(double l,double b){
         length = l;
         breadth = b;
     }
@@ -14,12 +14,13 @@ class Rectangle{
     }
 }
 class Box extends Rectangle{
-    int height;
-    Box(int l,int b,int h){
+    double height;
+    Box(double l,double b,double h){
         super(l, b);
         height = h;
     }
-    void displayH(){
+    void displayLBH(){
+        displayLB();
         System.out.println("Height = "+height);
     }
     void volume(){
@@ -29,23 +30,29 @@ class Box extends Rectangle{
 class InheritanceMain{
     public static void main(String args[]){
         Scanner sob = new Scanner(System.in);
-        System.out.print("Enter length and breadth: ");
-        int l = sob.nextInt();
-        int b = sob.nextInt();
-        Rectangle rob = new Rectangle(l, b);
-        System.out.print("Enter length, breadth and height: ");
-        l = sob.nextInt();
-        b = sob.nextInt();
-        int h = sob.nextInt();
-        Box bob = new Box(l,b,h);
-
-        System.out.println("Displaying Rectangle..");
-        rob.displayLB();
-        rob.area();
-        System.out.println("Displaying Box..");
-        bob.displayLB();
-        bob.displayH();
-        bob.volume();
-        sob.close();
+        int option;
+        do{
+            System.out.print("1: Rectangle\n2: Box \n3: Exit\nEnter an option: ");
+            option = sob.nextInt();
+            if(option == 1){
+                System.out.print("Enter length and breadth: ");
+                double l = sob.nextDouble();
+                double b = sob.nextDouble(); 
+                Rectangle r = new Rectangle(l,b);
+                r.displayLB();
+                r.area();
+            }else if(option == 2){
+                System.out.print("Enter length, breadth and height: ");
+                double l = sob.nextDouble();
+                double b = sob.nextDouble();
+                double h = sob.nextDouble();
+                Box B = new Box(l,b,h);
+                B.displayLBH();
+                B.volume();
+            }else if(option == 3) break;
+            else{
+                System.out.println("Invalid option");
+            }
+        }while(option != 3);
     }
 }

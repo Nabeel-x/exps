@@ -55,8 +55,7 @@ class Result extends Mark{
 }
 class MultilevelMain{
     public static void main(String args[]){
-        String name = "Nabeel";
-        Result rob = new Result(12,name,34,45,56);
+        Result rob = new Result(12,"Nabeel",34,45,56);
         rob.markList();
     }
 }
