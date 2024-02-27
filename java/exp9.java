@@ -19,8 +19,7 @@ class Box extends Rectangle{
         super(l, b);
         height = h;
     }
-    void displayLBH(){
-        displayLB();
+    void displayH(){
         System.out.println("Height = "+height);
     }
     void volume(){
@@ -47,7 +46,8 @@ class InheritanceMain{
                 double b = sob.nextDouble();
                 double h = sob.nextDouble();
                 Box B = new Box(l,b,h);
-                B.displayLBH();
+                B.displayLB();
+                B.displayH();
                 B.volume();
             }else if(option == 3) break;
             else{

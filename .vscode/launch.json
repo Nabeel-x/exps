@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "InheritanceMain",
+      "request": "launch",
+      "mainClass": "InheritanceMain",
+      "projectName": "exps_2eb381d5"
+    },
+    {
+      "type": "java",
       "name": "StudentsMain",
       "request": "launch",
       "mainClass": "StudentsMain",
