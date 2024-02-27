@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 class Student{
     int regNo;
     String name;
@@ -55,7 +55,16 @@ class Result extends Mark{
 }
 class MultilevelMain{
     public static void main(String args[]){
-        Result rob = new Result(12,"Nabeel",34,45,56);
+        Scanner sob = new Scanner(System.in);
+        int rno, m1, m2, m3;
+        String name;
+        System.out.print("Enter name, registerno, m1, m2, m3: ");
+        name = sob.nextLine();
+        rno = sob.nextInt();
+        m1 = sob.nextInt();
+        m2 = sob.nextInt();
+        m3 = sob.nextInt();
+        Result rob = new Result(rno,name,m1,m2,m3);
         rob.markList();
     }
 }
