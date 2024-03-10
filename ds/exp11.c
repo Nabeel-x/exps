@@ -67,7 +67,7 @@ void DFS(int begin){
 }
 void main(){
     int nv, option, e, v;
-    printf("Enter no of edges: ");
+    printf("Enter no of vertices: ");
     scanf("%d",&nv);
     createGraph(nv);
     while(1){
