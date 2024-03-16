@@ -1,64 +1,63 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 struct Node{
     int data;
     struct Node* link;
 };
-struct Node* stack = NULL;
-
+struct Node *front = NULL;
 struct Graph{
-    int vertices;
+    int nvertices;
     struct Node** adjList;
 };
-struct Graph* graph = NULL;
-
+struct Graph* graph;
 struct Node* newNode(int value,struct Node* link){
     struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = value;
     temp->link = link;
     return temp;
 }
-
-void push(int value){
-    struct Node* temp = newNode(value,stack);
-    stack = temp;
-}
-int pop(){
-    if(stack == NULL){
-        printf("Stack underflow\n");
-        return -1;
+void enqueue(int value){
+    if(front == NULL){
+        front = newNode(value,NULL);
+        return;
     }
-    int value = stack->data;
-    struct Node* temp = stack;
-    stack = stack->link;
+    struct Node* temp = front;
+    while(temp->link != NULL){
+        temp = temp->link;
+    }
+    temp->link = newNode(value,NULL);
+}
+int dequeue(){
+    int value = front->data;
+    struct Node* temp = front;
+    front = front->link;
     free(temp);
     return value;
 }
 void createGraph(int n){
     graph = (struct Graph*)malloc(sizeof(struct Graph));
-    graph->vertices = n;
+    graph->nvertices = n;
     graph->adjList = (struct Node**)malloc(n*sizeof(struct Node*));
-    for(int i = 0; i < n;++i){
+    for(int i = 0;i < n;i++) {
         graph->adjList[i] = NULL;
     }
 }
-void addEdge(int src, int dest){
+void addEdge(int src,int dest){
     graph->adjList[src] = newNode(dest,graph->adjList[src]);
     graph->adjList[dest] = newNode(src,graph->adjList[dest]);
 }
-void DFS(int begin){
-    int* visited = (int*)malloc(graph->vertices*sizeof(int));
-    for(int i = 0;i < graph->vertices;++i) visited[i] = 0;
-    push(begin);
-    while(stack != NULL){
-        int vertex = pop();
+void BFS(int begin){
+    int* visited = (int*)malloc(graph->nvertices*sizeof(int));
+    for(int i = 0;i < graph->nvertices;i++) visited[i] = 0;
+    enqueue(begin);
+    while(front != NULL){
+        int vertex = dequeue();
         if(!visited[vertex]){
             visited[vertex] = 1;
             printf("%d ",vertex);
             struct Node* temp = graph->adjList[vertex];
             while(temp != NULL){
-                if(!visited[temp->data]) push(temp->data);
+                if(!visited[temp->data]) enqueue(temp->data);
                 temp = temp->link;
             }
         }
@@ -71,7 +70,7 @@ void main(){
     scanf("%d",&nv);
     createGraph(nv);
     while(1){
-        printf("1: Add edge\n2: DFS traversal\n3: Exit\nEnter an option: ");
+        printf("1: Add edge\n2: BFS traversal\n3: Exit\nEnter an option: ");
         scanf("%d",&option);
         if(option == 1){
             printf("Enter edge value and map value: ");
@@ -80,7 +79,7 @@ void main(){
         }else if(option == 2){
             printf("Enter starting vertex: ");
             scanf("%d",&v);
-            DFS(v);
+            BFS(v);
         }else if(option == 3){
             break;
         }else{
