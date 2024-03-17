@@ -73,7 +73,7 @@ void main(){
         printf("1: Add edge\n2: BFS traversal\n3: Exit\nEnter an option: ");
         scanf("%d",&option);
         if(option == 1){
-            printf("Enter edge value and map value: ");
+            printf("Enter vertices to map: ");
             scanf("%d%d",&e,&v);
             addEdge(e,v);
         }else if(option == 2){
